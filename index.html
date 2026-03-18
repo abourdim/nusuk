@@ -1637,6 +1637,8 @@ function updateRing(pct, state) {
     }
     updateClock();
     setInterval(updateClock, 1000);
+    // Open help sidebar by default
+    setTimeout(function(){ toggleHelp(); }, 600);
     const wl=document.getElementById("workshopLogo"); const sl=document.getElementById("splashLogo"); if(wl&&sl) sl.src=wl.src;
   });
 
