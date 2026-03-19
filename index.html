@@ -1433,7 +1433,7 @@ function updateRing(pct, state) {
       setStatus('down', 'Unreachable', 'Network error — will retry');
       addLog('down', t('networkError') + err.message.slice(0,60));
     }
-    startCountdown();
+    if (isRunning) startCountdown();
   }
 
   function onSiteLive() {
@@ -1481,7 +1481,7 @@ function updateRing(pct, state) {
       updateCountdown();
       if (countdown <= 0) {
         clearInterval(countdownTimer);
-        checkSite();
+        if (isRunning) checkSite();
       }
     }, 1000);
   }
